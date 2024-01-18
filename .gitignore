@@ -5,27 +5,19 @@
 
 # ____________________
 # FRONTEND
-# dependencies
-frontend/node_modules
-frontend/.pnp
-frontend/.pnp.js
-
-# testing
-frontend/coverage
-
-# production
-frontend/build
-
-# misc
+# Local
 frontend/.DS_Store
-frontend/.env.local
-frontend/.env.development.local
-frontend/.env.test.local
-frontend/.env.production.local
+frontend/*.local
+frontend/*.log*
 
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/yarn-error.log*
+# Dist
+frontend/node_modules
+frontend/dist/
+
+# IDE
+frontend/.vscode/*
+frontend/!.vscode/extensions.json
+frontend/.idea
 
 # ____________________
 # BACKEND
