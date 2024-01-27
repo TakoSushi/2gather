@@ -1,0 +1,68 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "document": "readonly",
+    "localStorage": "writable",
+    "sessionStorage": "writable"
+  },
+  "rules": {
+    "no-param-reassign": ["error", { "props": false }],
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unescaped-entities": "off",
+    "react/button-has-type": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "error",
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "jsx-a11y/accessible-emoji": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "aspects": ["invalidHref", "preferButton"],
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      },
+      {
+        "usePrettierrc": true
+      }
+    ]
+  },
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "prettier",
+    "import",
+    "react"
+  ]
+}

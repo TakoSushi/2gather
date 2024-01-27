@@ -1,23 +1,13 @@
-# ALL APP dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# ____________________
-# FRONTEND
 # Local
-frontend/.DS_Store
-frontend/*.local
-frontend/*.log*
+.DS_Store
+*.local
+*.log*
 
 # Dist
-frontend/node_modules
-frontend/dist/
+node_modules
+dist/
 
 # IDE
-frontend/.vscode/*
-frontend/!.vscode/extensions.json
-frontend/.idea
-
-# ____________________
-# BACKEND
+.vscode/*
+!.vscode/extensions.json
+.idea
