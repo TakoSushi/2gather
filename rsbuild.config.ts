@@ -5,7 +5,10 @@ export default defineConfig({
   plugins: [pluginReact()],
   source: {
     entry: {
-      index: "./src/app/index.tsx",
+      index: './src/main.tsx',
     },
+  },
+  server: {
+    port: 8081,
   },
 });

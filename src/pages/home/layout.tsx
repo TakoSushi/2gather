@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import React, { useState } from 'react';
+import { Key, ReactNode, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -15,9 +15,9 @@ const { Header, Content, Footer, Sider } = Layout;
 type MenuItem = Required<MenuProps>['items'][number];
 
 function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
+  label: ReactNode,
+  key: Key,
+  icon?: ReactNode,
   children?: MenuItem[],
 ): MenuItem {
   return {
@@ -43,14 +43,14 @@ const items: MenuItem[] = [
   getItem('Files', '9', <FileOutlined />),
 ];
 
-const App: React.FC = () => {
+export const MainLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minWidth: '400px', minHeight: '100vh' }}>
       <Sider
         collapsible
         collapsed={collapsed}
@@ -90,5 +90,3 @@ const App: React.FC = () => {
     </Layout>
   );
 };
-
-export default App;

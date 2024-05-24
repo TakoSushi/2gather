@@ -1,45 +1,72 @@
-import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
+import { Flex, Typography } from 'antd';
+import {
+  ErrorResponse,
+  Link,
+  isRouteErrorResponse,
+  useRouteError,
+} from 'react-router-dom';
+
+import { GhoustIcon } from './ghoustIcon';
+
+type TError = {
+  message: string;
+  status: number;
+  statusText: string;
+};
+
+function getErrorMessage(error: ErrorResponse): string {
+  const messages: Record<number, string> = {
+    404: "This page doesn't exist!",
+    401: "You aren't authorized to see this",
+    503: 'Looks like our API is down',
+    418: 'I’m a teapot',
+  };
+
+  return messages[error.status];
+}
+
+function handleError(error: unknown): TError {
+  const defaultError: TError = {
+    message: 'Something went wrong!',
+    status: 500,
+    statusText: 'Internal Server Error',
+  };
+
+  if (isRouteErrorResponse(error)) {
+    return {
+      message: getErrorMessage(error),
+      status: error.status,
+      statusText: error.statusText,
+    };
+  }
+
+  return defaultError;
+}
 
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error);
 
-  let errorMessage = 'Ой, что то пошло не так!!!';
+  const handlingError = handleError(error);
 
-  if (isRouteErrorResponse(error)) {
-    if (error.status === 404) {
-      errorMessage = "This page doesn't exist!";
-    }
-
-    if (error.status === 401) {
-      errorMessage = "You aren't authorized to see this";
-    }
-
-    if (error.status === 503) {
-      errorMessage = 'Looks like our API is down';
-    }
-
-    if (error.status === 418) {
-      errorMessage = '🫖';
-    }
-
-    return (
-      <div id="error-page">
-        <h1>Oops!</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
-        <p>
-          <i>{error.statusText || error.status}</i>
-          <i>{errorMessage}</i>
-        </p>
-      </div>
-    );
-  }
-  if (error instanceof Error) {
-    errorMessage = error.message;
-  }
-  if (typeof error === 'string') {
-    errorMessage = error;
-  }
-
-  return <div id="error-page">{errorMessage}</div>;
+  return (
+    <Flex
+      vertical
+      align="center"
+      justify="center"
+      gap="medium"
+      style={{ width: '100%', height: '80vh' }}
+    >
+      <Typography.Paragraph style={{ fontSize: '20px' }}>
+        {handlingError.statusText}
+      </Typography.Paragraph>
+      <Typography.Text style={{ fontSize: '120px' }}>
+        {handlingError.status}
+        <GhoustIcon />
+      </Typography.Text>
+      <Typography.Text italic>{handlingError.message}</Typography.Text>
+      <Typography.Text>
+        <Link to="/">Вернуться на главную страницу</Link>
+      </Typography.Text>
+    </Flex>
+  );
 }

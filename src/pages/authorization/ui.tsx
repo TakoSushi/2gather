@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { paths } from '../../shared/model/path';
+import { paths } from '../../shared/const/path';
 
 type FieldType = {
   username?: string;

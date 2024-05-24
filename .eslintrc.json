@@ -28,7 +28,7 @@
     "react/button-has-type": "off",
     "import/no-anonymous-default-export": "off",
     "import/no-extraneous-dependencies": "off",
-    "import/no-unresolved": "error",
+    "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "simple-import-sort/exports": "warn",
     "simple-import-sort/imports": "warn",
@@ -63,7 +63,6 @@
     "@typescript-eslint",
     "simple-import-sort",
     "prettier",
-    "import",
     "react"
   ]
 }
