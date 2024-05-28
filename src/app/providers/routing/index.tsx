@@ -1,8 +1,8 @@
-import Authorization from '@pages/authorization/ui';
-import ErrorPage from '@pages/errorPage/errorPage';
-import { MainLayout } from '@pages/home/layout';
-import Registration from '@pages/registration/Registration';
-import Contact from '@pages/user-profile/user-profile';
+import { Authorization } from '@pages/authorization/';
+import { ErrorPage } from '@pages/errorPage/';
+import { MainLayout } from '@pages/layout/';
+import { Registration } from '@pages/registration/';
+import { Contact } from '@pages/user-profile/';
 import { paths } from '@shared/const/path';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -13,7 +13,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: 'contacts/:contactId',
+        // path: 'contacts/:contactId',
+        path: 'accaunt',
         element: <Contact />,
       },
     ],

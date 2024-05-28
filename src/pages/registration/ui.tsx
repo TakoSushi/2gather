@@ -1,12 +1,12 @@
 import {
   Button,
+  Checkbox,
   Flex,
   Form,
   type FormProps,
   Input,
   Space,
   Typography,
-  Checkbox,
 } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -27,7 +27,7 @@ const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = errorInfo => {
   console.log('Failed:', errorInfo);
 };
 
-const Registration: React.FC = () => (
+export const Registration: React.FC = () => (
   <Flex
     style={{ width: '100%', margin: '100px auto', maxWidth: 1280 }}
     vertical
@@ -85,5 +85,3 @@ const Registration: React.FC = () => (
     </Typography.Text>
   </Flex>
 );
-
-export default Registration;

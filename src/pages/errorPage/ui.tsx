@@ -1,8 +1,8 @@
 import { Flex, Typography } from 'antd';
 import {
   ErrorResponse,
-  Link,
   isRouteErrorResponse,
+  Link,
   useRouteError,
 } from 'react-router-dom';
 
@@ -17,9 +17,9 @@ type TError = {
 function getErrorMessage(error: ErrorResponse): string {
   const messages: Record<number, string> = {
     404: "This page doesn't exist!",
-    401: "You aren't authorized to see this",
-    503: 'Looks like our API is down',
-    418: 'I’m a teapot',
+    401: "You aren't authorized to see this!",
+    503: 'Looks like our API is down!',
+    418: "I'm a teapot!",
   };
 
   return messages[error.status];
@@ -43,7 +43,7 @@ function handleError(error: unknown): TError {
   return defaultError;
 }
 
-export default function ErrorPage() {
+export function ErrorPage() {
   const error = useRouteError();
 
   const handlingError = handleError(error);

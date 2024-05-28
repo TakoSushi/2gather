@@ -26,7 +26,7 @@ const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = errorInfo => {
   console.log('Failed:', errorInfo);
 };
 
-const Authorization: React.FC = () => (
+export const Authorization: React.FC = () => (
   <Flex
     style={{ width: '100%', margin: '100px auto', maxWidth: 1280 }}
     vertical
@@ -76,5 +76,3 @@ const Authorization: React.FC = () => (
     </Typography.Text>
   </Flex>
 );
-
-export default Authorization;

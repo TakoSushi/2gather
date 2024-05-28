@@ -14,6 +14,7 @@
     "moduleResolution": "bundler",
     "useDefineForClassFields": true,
     "paths": {
+      "@app/*": ["./src/app/*"],
       "@pages/*": ["./src/pages/*"],
       "@widgets/*": ["./src/widgets/*"],
       "@feature/*": ["./src/feature/*"],
@@ -21,5 +22,5 @@
       "@shared/*": ["./src/shared/*"],
     }
   },
-  "include": ["./src", "src/main.tsx", "./rsbuild.config.ts"],
+  "include": ["./src", "src/index.tsx", "./rsbuild.config.ts"],
 }
